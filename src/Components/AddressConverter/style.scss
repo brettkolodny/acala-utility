@@ -33,6 +33,18 @@
       font-size: 24px;
     }
 
+    #convert-error {
+      margin-top: 4px;
+      align-self: flex-start;
+      height: 16px;
+      #convert-error-message {
+        display: none;
+        color: #e02020;
+
+        font-family: sans-serif;
+      }
+    }
+
     > #output-address {
       padding-left: 16px;
       display: flex;

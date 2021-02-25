@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Keyring from "@polkadot/keyring";
+import { isKusamaAddress } from "../../utility";
 import "./style.scss";
 
 function formatToken(token, tokenType) {
@@ -24,10 +25,19 @@ export default function TokenLookup(props) {
   const [kar, setKAR] = useState(null);
 
   const lookupTokens = async () => {
-    const address = keyring.encodeAddress(
-      document.getElementById("address").value,
-      42
-    );
+    const kusamaAddress = document.getElementById("address").value;
+
+    if (!isKusamaAddress(kusamaAddress)) {
+      document.getElementById("lookup-error-message").style.display = "inherit";
+      return;
+    } else {
+      document.getElementById("lookup-error-message").style.display = "none";
+    }
+
+    let address;
+    try {
+      address = keyring.encodeAddress(kusamaAddress, 42);
+    } catch {}
 
     let acaToken = await api.query.airDrop.airDrops(address, "ACA");
     if (acaToken == "0") {
@@ -43,6 +53,11 @@ export default function TokenLookup(props) {
       <div id="content">
         <div id="label">Kusama Address</div>
         <input id="address" type="text" placeholder="address" />
+        <div id="lookup-error">
+          <div id="lookup-error-message">
+            Invalid address, is it a Kusama address?
+          </div>
+        </div>
         <div className="button" onClick={() => lookupTokens()}>
           Lookup
         </div>
