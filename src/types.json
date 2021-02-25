@@ -1,0 +1,257 @@
+{
+  "AccountId": "GenericAccountId",
+  "AccountIdOf": "AccountId",
+  "AccountIndex": "GenericAccountIndex",
+  "Address": "GenericAddress",
+  "AssetId": "u32",
+  "Balance": "u128",
+  "BalanceOf": "Balance",
+  "Block": "GenericBlock",
+  "BlockNumber": "u32",
+  "Call": "GenericCall",
+  "ChangesTrieConfiguration": {
+    "digestInterval": "u32",
+    "digestLevels": "u32"
+  },
+  "ConsensusEngineId": "GenericConsensusEngineId",
+  "Digest": {
+    "logs": "Vec<DigestItem>"
+  },
+  "DigestItem": {
+    "_enum": {
+      "Other": "Bytes",
+      "AuthoritiesChange": "Vec<AuthorityId>",
+      "ChangesTrieRoot": "Hash",
+      "SealV0": "SealV0",
+      "Consensus": "Consensus",
+      "Seal": "Seal",
+      "PreRuntime": "PreRuntime"
+    }
+  },
+  "DispatchClass": {
+    "_enum": ["Normal", "Operational", "Mandatory"]
+  },
+  "DispatchInfo": {
+    "weight": "Weight",
+    "class": "DispatchClass",
+    "paysFee": "Pays"
+  },
+  "DispatchInfoTo190": {
+    "weight": "Weight",
+    "class": "DispatchClass"
+  },
+  "DispatchInfoTo244": {
+    "weight": "Weight",
+    "class": "DispatchClass",
+    "paysFee": "bool"
+  },
+  "ExtrinsicsWeight": {
+    "normal": "Weight",
+    "operational": "Weight"
+  },
+  "Fixed64": "Int<64, Fixed64>",
+  "Fixed128": "Int<128, Fixed128>",
+  "H160": "[u8; 20; H160]",
+  "H256": "[u8; 32; H256]",
+  "H512": "[u8; 64; H512]",
+  "Hash": "H256",
+  "Header": {
+    "parentHash": "Hash",
+    "number": "Compact<BlockNumber>",
+    "stateRoot": "Hash",
+    "extrinsicsRoot": "Hash",
+    "digest": "Digest"
+  },
+  "Index": "u32",
+  "Justification": "Bytes",
+  "KeyValue": "(StorageKey, StorageData)",
+  "KeyTypeId": "u32",
+  "LockIdentifier": "[u8; 8]",
+  "LookupSource": "Address",
+  "LookupTarget": "AccountId",
+  "ModuleId": "LockIdentifier",
+  "Moment": "u64",
+  "Origin": "DoNotConstruct<Origin>",
+  "Pays": {
+    "_enum": ["Yes", "No"]
+  },
+  "Perbill": "u32",
+  "Percent": "u8",
+  "Permill": "u32",
+  "Perquintill": "u64",
+  "Phantom": "Null",
+  "PhantomData": "Null",
+  "ProxyType": {
+    "_enum": ["Any", "NonTransfer", "Governance", "Staking"]
+  },
+  "RuntimeDbWeight": {
+    "read": "Weight",
+    "write": "Weight"
+  },
+  "SignedBlock": {
+    "block": "Block",
+    "justification": "Justification"
+  },
+  "StorageData": "Bytes",
+  "ValidatorId": "AccountId",
+  "Weight": "u64",
+  "WeightMultiplier": "Fixed64",
+  "PreRuntime": "(ConsensusEngineId, Bytes)",
+  "SealV0": "(u64, Signature)",
+  "Seal": "(ConsensusEngineId, Bytes)",
+  "Consensus": "(ConsensusEngineId, Bytes)",
+  "AuctionId": "u32",
+  "AuctionIdOf": "AuctionId",
+  "CurrencyIdOf": "CurrencyId",
+  "Amount": "i128",
+  "AmountOf": "Amount",
+  "DebitAmount": "Amount",
+  "DebitAmountOf": "DebitAmount",
+  "DebitBalance": "Balance",
+  "DebitBalanceOf": "Balance",
+  "AuctionIdLinkedItem": {
+    "prev": "Option<AuctionId>",
+    "next": "Option<AuctionId>"
+  },
+  "OracleKey": "CurrencyId",
+  "OracleValue": "Price",
+  "Share": "u128",
+  "AuctionItem": {
+    "owner": "AccountId",
+    "currencyId": "CurrencyId",
+    "amount": "Balance",
+    "target": "Balance",
+    "startTime": "BlockNumber"
+  },
+  "CallOf": "Call",
+  "TimestampedValue": {
+    "value": "OracleValue",
+    "timestamp": "Moment"
+  },
+  "TimestampedValueOf": "TimestampedValue",
+  "OrderedSet": "Vec<AccountId>",
+  "Price": "FixedU128",
+  "OrmlAccountData": {
+    "free": "Balance",
+    "frozen": "Balance",
+    "reserved": "Balance"
+  },
+  "OrmlBalanceLock": {
+    "amount": "Balance",
+    "id": "LockIdentifier"
+  },
+  "AuctionInfo": {
+    "bid": "Option<(AccountId, Balance)>",
+    "start": "BlockNumber",
+    "end": "Option<BlockNumber>"
+  },
+  "DelayedDispatchTime": {
+    "_enum": {
+      "At": "BlockNumber",
+      "After": "BlockNumber"
+    }
+  },
+  "DispatchId": "u32",
+  "FixedU128": "u128",
+  "VestingSchedule": {
+    "start": "BlockNumber",
+    "period": "BlockNumber",
+    "periodCount": "u32",
+    "perPeriod": "Compact<Balance>"
+  },
+  "VestingScheduleOf": "VestingSchedule",
+  "PalletBalanceOf": "Balance",
+  "DepositBalanceOf": "Balance",
+  "CollateralAuctionItem": {
+    "owner": "AccountId",
+    "currencyId": "CurrencyId",
+    "amount": "Compact<Balance>",
+    "target": "Compact<Balance>",
+    "startTime": "BlockNumber"
+  },
+  "DebitAuctionItem": {
+    "amount": "Compact<Balance>",
+    "fix": "Compact<Balance>",
+    "startTime": "BlockNumber"
+  },
+  "SurplusAuctionItem": {
+    "amount": "Compact<Balance>",
+    "startTime": "BlockNumber"
+  },
+  "LiquidationStrategy": {
+    "_enum": ["Auction", "Exchange"]
+  },
+  "OptionRate": "Option<Rate>",
+  "OptionRatio": "Option<Ratio>",
+  "ChangeOptionRate": {
+    "_enum": {
+      "NoChange": "Null",
+      "NewValue": "OptionRate"
+    }
+  },
+  "ChangeOptionRatio": {
+    "_enum": {
+      "NoChange": "Null",
+      "NewValue": "OptionRatio"
+    }
+  },
+  "ChangeBalance": {
+    "_enum": {
+      "NoChange": "Null",
+      "NewValue": "Balance"
+    }
+  },
+  "RiskManagementParams": {
+    "maximumTotalDebitValue": "Balance",
+    "stabilityFee": "Option<Rate>",
+    "liquidationRatio": "Option<Rate>",
+    "liquidationPenalty": "Option<Rate>",
+    "requiredCollateralRatio": "Option<Rate>"
+  },
+  "BalanceWrapper": {
+    "amount": "Balance"
+  },
+  "BalanceRequest": {
+    "amount": "Balance"
+  },
+  "RedeemStrategy": {
+    "_enum": {
+      "Immediately": "Null",
+      "Target": "EraIndex",
+      "WaitForUnbonding": "Null"
+    }
+  },
+  "HomaUnlockChunk": {
+    "value": "Compact<Balance>",
+    "era": "Compact<EraIndex>"
+  },
+  "BondingLedger": {
+    "total": "Compact<Balance>",
+    "active": "Compact<Balance>",
+    "unlocking": "Vec<UnlockChunk>"
+  },
+  "CurrencyId": {
+    "_enum": ["ACA", "AUSD", "DOT", "XBTC", "LDOT"]
+  },
+  "AirDropCurrencyId": {
+    "_enum": ["KAR", "ACA"]
+  },
+  "BalanceInfo": {
+    "amount": "Balance"
+  },
+  "StakingBalance": "Balance",
+  "LiquidBalance": "Balance",
+  "StakingBalanceOf": "StakingBalance",
+  "LiquidBalanceOf": "LiquidBalance",
+  "PolkadotAccountId": "AccountId",
+  "PolkadotAccountIdOf": "PolkadotAccountId",
+  "ExchangeRate": "FixedU128",
+  "Rate": "FixedU128",
+  "Ratio": "FixedU128",
+  "Keys": "SessionKeys2",
+  "TradingPair": {
+    "base": "CurrencyId",
+    "quote": "CurrencyId"
+  },
+  "PoolId": "u64"
+}

@@ -1,0 +1,17 @@
+body {
+  background-image: linear-gradient(
+    270deg,
+    rgb(223, 0, 142) 0%,
+    rgb(255, 78, 78) 98%
+  );
+  /* background-color: #f8f9fd; */
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 100vh;
+}
