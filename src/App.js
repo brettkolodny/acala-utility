@@ -3,10 +3,10 @@ import { ApiPromise, WsProvider } from "@polkadot/api";
 import { types } from "@acala-network/types";
 import AddressConverter from "./Components/AddressConverter";
 import TokenLookup from "./Components/TokenLookup";
-
-const acalaTypes = require("./types.json");
+import Connecting from "./Components/Connecting";
 
 export default function App() {
+  const [connecting, setConnecting] = useState(true);
   const [api, setApi] = useState(null);
 
   const connect = async () => {
@@ -19,6 +19,7 @@ export default function App() {
     });
 
     setApi(api);
+    setConnecting(false);
   };
 
   useEffect(() => {
@@ -27,8 +28,11 @@ export default function App() {
 
   return (
     <div id="app">
-      <AddressConverter />
-      <TokenLookup api={api} />
+      {connecting ? <Connecting /> : null}
+      <div id="app-content" className={connecting ? "blurred" : ""}>
+        <AddressConverter />
+        <TokenLookup api={api} />
+      </div>
     </div>
   );
 }

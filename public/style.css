@@ -7,11 +7,15 @@ body {
   /* background-color: #f8f9fd; */
 }
 
-#app {
+#app-content {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 
   height: 100vh;
+}
+
+.blurred {
+  filter: blur(2px);
 }

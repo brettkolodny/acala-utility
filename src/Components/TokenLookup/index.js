@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import Keyring from "@polkadot/keyring";
 import "./style.scss";
 
+function formatToken(token, tokenType) {
+  if (token == 0) {
+    return `0 ${tokenType}`;
+  }
+
+  const [tokenAmount, tokenSymbol] = token.split(" ");
+
+  if (tokenSymbol.charAt(0) == "k") {
+    return `${tokenAmount} k${tokenType}`;
+  } else {
+    return `${tokenAmount} ${tokenType}`;
+  }
+}
+
 export default function TokenLookup(props) {
   const { api } = props;
   const keyring = new Keyring();
@@ -16,10 +30,12 @@ export default function TokenLookup(props) {
     );
 
     let acaToken = await api.query.airDrop.airDrops(address, "ACA");
+    if (acaToken == "0") {
+    }
     let karToken = await api.query.airDrop.airDrops(address, "KAR");
 
-    setACA(() => acaToken.toHuman());
-    setKAR(() => karToken.toHuman());
+    setACA(() => formatToken(acaToken.toHuman(), "ACA"));
+    setKAR(() => formatToken(karToken.toHuman(), "KAR"));
   };
 
   return (
