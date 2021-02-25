@@ -4,7 +4,8 @@ body {
     rgb(223, 0, 142) 0%,
     rgb(255, 78, 78) 98%
   );
-  /* background-color: #f8f9fd; */
+
+  overflow: hidden;
 }
 
 #app-content {
@@ -14,8 +15,4 @@ body {
   align-items: center;
 
   height: 100vh;
-}
-
-.blurred {
-  filter: blur(2px);
 }

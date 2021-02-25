@@ -1,3 +1,13 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 #connecting {
   z-index: 2;
   position: absolute;
@@ -12,8 +22,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 128px;
-    height: 64px;
+    width: 96px;
+    height: 96px;
 
     background-color: white;
     box-shadow: rgba(1, 85, 255, 0.15) 0px 0px 21px;
@@ -22,5 +32,11 @@
     color: #173dc9;
     font-family: sans-serif;
     font-size: 20px;
+
+    img {
+      width: 64px;
+      height: 64px;
+      animation: spin 1s linear 0s infinite normal;
+    }
   }
 }

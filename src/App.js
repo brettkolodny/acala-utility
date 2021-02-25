@@ -4,9 +4,11 @@ import { types } from "@acala-network/types";
 import AddressConverter from "./Components/AddressConverter";
 import TokenLookup from "./Components/TokenLookup";
 import Connecting from "./Components/Connecting";
+import ConnectionSuccess from "./Components/ConnectionSuccess";
 
 export default function App() {
   const [connecting, setConnecting] = useState(true);
+  const [showConnSuccess, setShowConnSuccess] = useState(false);
   const [api, setApi] = useState(null);
 
   const connect = async () => {
@@ -20,6 +22,7 @@ export default function App() {
 
     setApi(api);
     setConnecting(false);
+    setShowConnSuccess(true);
   };
 
   useEffect(() => {
@@ -29,10 +32,15 @@ export default function App() {
   return (
     <div id="app">
       {connecting ? <Connecting /> : null}
-      <div id="app-content" className={connecting ? "blurred" : ""}>
-        <AddressConverter />
-        <TokenLookup api={api} />
-      </div>
+      {showConnSuccess ? (
+        <ConnectionSuccess setShow={setShowConnSuccess} />
+      ) : null}
+      {connecting ? null : (
+        <div id="app-content">
+          <AddressConverter />
+          <TokenLookup api={api} />
+        </div>
+      )}
     </div>
   );
 }
