@@ -4,4 +4,10 @@ function isKusamaAddress(address) {
   return pattern.exec(address);
 }
 
-export { isKusamaAddress };
+function isPolkadotAddress(address) {
+  const pattern = /^1\w{47}/;
+
+  return pattern.exec(address);
+}
+
+export { isKusamaAddress, isPolkadotAddress };
