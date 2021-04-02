@@ -8,7 +8,10 @@ export default function AddressConverter() {
 
   const convert = () => {
     const fromAddress = document.getElementById("from-address").value.trim();
-    if (!isKusamaAddress(fromAddress)) {
+
+    const toAddress = document.getElementById("output-address").value.trim();
+
+    if (!isKusamaAddress(fromAddress) && fromAddress != "") {
       document.getElementById("convert-error-message").style.display =
         "inherit";
       return;
@@ -17,9 +20,17 @@ export default function AddressConverter() {
     }
 
     try {
-      document.getElementById(
-        "output-address"
-      ).innerHTML = keyring.encodeAddress(fromAddress, 42);
+      if (fromAddress != "") {
+        document.getElementById("output-address").value = keyring.encodeAddress(
+          fromAddress,
+          42
+        );
+      } else {
+        document.getElementById("from-address").value = keyring.encodeAddress(
+          toAddress,
+          2
+        );
+      }
     } catch {}
   };
   return (
@@ -36,7 +47,7 @@ export default function AddressConverter() {
           Convert
         </div>
         <div id="label">Acala Address</div>
-        <div id="output-address"></div>
+        <input id="output-address" type="text" placeholder="address"></input>
       </div>
     </div>
   );

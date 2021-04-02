@@ -8,9 +8,10 @@
     "build": "parcel build public/index.html --public-url ./"
   },
   "dependencies": {
-    "@acala-network/types": "^0.6.1",
+    "@acala-network/types": "^0.7.1",
     "@polkadot/api": "^3.10.2",
     "@polkadot/keyring": "^5.7.1",
+    "@polkadot/wasm-crypto": "^4.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

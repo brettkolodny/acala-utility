@@ -13,7 +13,7 @@ export default function App() {
 
   const connect = async () => {
     const wsProvider = new WsProvider(
-      "wss://node-6714447553211260928.rz.onfinality.io/ws"
+      "wss://acala-mandala.api.onfinality.io/public-ws"
     );
     const api = await ApiPromise.create({
       provider: wsProvider,

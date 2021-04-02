@@ -5,7 +5,7 @@ function isKusamaAddress(address) {
 }
 
 function isPolkadotAddress(address) {
-  const pattern = /^1\w{47}/;
+  const pattern = /^1\w{46}/;
 
   return pattern.exec(address);
 }
