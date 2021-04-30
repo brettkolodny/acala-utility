@@ -36,7 +36,7 @@ export default function AddressConverter() {
   return (
     <div id="address-converter">
       <div id="content">
-        <div id="input-label">Enter an address (used on Karura and Acala)</div>
+        <div id="input-label">Enter an address</div>
         <input id="from-address" type="text" placeholder="address" />
         <div id="convert-error">
           <div id="convert-error-message">
@@ -50,7 +50,7 @@ export default function AddressConverter() {
         <div id="polkadot-address" className="output-address"></div>
         <div id="label">Kusama Address</div>
         <div id="kusama-address" className="output-address"></div>
-        <div id="label">Substrate Address</div>
+        <div id="label">Substrate Address (used on Karura and Acala)</div>
         <div id="substrate-address" className="output-address"></div>
       </div>
     </div>
