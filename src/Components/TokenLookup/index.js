@@ -60,6 +60,7 @@ export default function TokenLookup(props) {
     <div id="token-lookup">
       <div id="content">
         <div id="label">Polkadot, Kusama, or Substrate Address</div>
+        <div id="label">(used on Karura and Acala)</div>
         <input id="address" type="text" placeholder="address" />
         <div id="lookup-error">
           <div id="lookup-error-message">
