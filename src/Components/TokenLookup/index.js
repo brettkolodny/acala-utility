@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Keyring from "@polkadot/keyring";
-import { isKusamaAddress, isPolkadotAddress } from "../../utility";
+import {
+  isKusamaAddress,
+  isPolkadotAddress,
+  isSubstrateAddress,
+} from "../../utility";
 import "./style.scss";
 
 function formatToken(token, tokenType) {
   if (token == 0) {
-    return `0 ${tokenType}`;
+    return `0.000 ${tokenType}`;
   }
 
   const [tokenAmount, tokenSymbol] = token.split(" ");
@@ -27,7 +31,11 @@ export default function TokenLookup(props) {
   const lookupTokens = async () => {
     const inputAddress = document.getElementById("address").value;
 
-    if (!isKusamaAddress(inputAddress) && !isPolkadotAddress(inputAddress)) {
+    if (
+      !isKusamaAddress(inputAddress) &&
+      !isPolkadotAddress(inputAddress) &&
+      !isSubstrateAddress(inputAddress)
+    ) {
       document.getElementById("lookup-error-message").style.display = "inherit";
       return;
     } else {
@@ -51,11 +59,11 @@ export default function TokenLookup(props) {
   return (
     <div id="token-lookup">
       <div id="content">
-        <div id="label">Polkadot or Kusama Address</div>
+        <div id="label">Polkadot, Kusama, or Substrate Address</div>
         <input id="address" type="text" placeholder="address" />
         <div id="lookup-error">
           <div id="lookup-error-message">
-            Invalid address, is it a Polkadot or Kusama address?
+            Invalid address, is it a Polkadot, Kusama, or Substrate address?
           </div>
         </div>
         <div className="button" onClick={() => lookupTokens()}>
@@ -65,12 +73,12 @@ export default function TokenLookup(props) {
           {aca ? (
             <div className="token">{aca}</div>
           ) : (
-            <div className="token muted">0.0 ACA</div>
+            <div className="token muted">0.0000 ACA</div>
           )}
           {kar ? (
             <div className="token">{kar}</div>
           ) : (
-            <div className="token muted">0.0 KAR</div>
+            <div className="token muted">0.0000 KAR</div>
           )}
         </div>
       </div>

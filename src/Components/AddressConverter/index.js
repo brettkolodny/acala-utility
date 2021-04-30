@@ -46,7 +46,7 @@ export default function AddressConverter() {
         <div className="button" onClick={() => convert()}>
           Convert
         </div>
-        <div id="label">Acala Address</div>
+        <div id="label">Substrate Address</div>
         <input id="output-address" type="text" placeholder="address"></input>
       </div>
     </div>
