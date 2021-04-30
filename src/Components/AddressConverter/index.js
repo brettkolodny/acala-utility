@@ -36,7 +36,7 @@ export default function AddressConverter() {
   return (
     <div id="address-converter">
       <div id="content">
-        <div id="input-label">Enter an address</div>
+        <div id="input-label">Enter an address (used on Karura and Acala)</div>
         <input id="from-address" type="text" placeholder="address" />
         <div id="convert-error">
           <div id="convert-error-message">
