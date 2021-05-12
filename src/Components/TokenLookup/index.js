@@ -9,15 +9,25 @@ import "./style.scss";
 
 function formatToken(token, tokenType) {
   if (token == 0) {
-    return `0.000 ${tokenType}`;
+    return `0 ${tokenType}`;
   }
 
   const [tokenAmount, tokenSymbol] = token.split(" ");
 
-  if (tokenSymbol.charAt(0) == "k") {
-    return `${tokenAmount} k${tokenType}`;
+  if (tokenType === "KAR") {
+    const unit = tokenSymbol.charAt(0);
+    const amount = parseFloat(tokenAmount);
+
+    switch (unit) {
+      case "A":
+        return `${amount * 10} KAR`;
+      case "m":
+        return `${amount / 10} KAR`;
+      default:
+        return `${amount} ${tokenSymbol}`;
+    }
   } else {
-    return `${tokenAmount} ${tokenType}`;
+    return `${parseFloat(tokenAmount)} ${tokenSymbol}`;
   }
 }
 
