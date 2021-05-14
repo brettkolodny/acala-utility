@@ -80,3 +80,88 @@
     color: gray;
   }
 }
+
+@media screen and (max-width: 600px) {
+  #token-lookup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 356px;
+    height: 324px;
+    box-shadow: rgba(1, 85, 255, 0.15) 0px 0px 21px;
+    border-radius: 22px;
+    background-color: white;
+  
+    #content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      > #label {
+        align-self: flex-start;
+        font-family: sans-serif;
+        color: #173dc9;
+        font-size: 16px;
+      }
+  
+      > input {
+        padding-left: 16px;
+        width: 256px;
+        height: 32px;
+        border-color: #0155ff;
+        border-style: solid 1px;
+        border-radius: 5px;
+        outline: none;
+  
+        font-size: 24px;
+      }
+  
+      #lookup-error {
+        margin-top: 4px;
+        align-self: flex-start;
+        height: 16px;
+        #lookup-error-message {
+          display: none;
+          color: #e02020;
+  
+          font-family: sans-serif;
+        }
+      }
+    }
+  
+    .button {
+      margin: 16px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 64px;
+      height: 32px;
+      background-color: #173dc9;
+      font-size: 16px;
+      color: white;
+      font-family: sans-serif;
+    }
+  
+    .button:hover {
+      cursor: pointer;
+    }
+  
+    #tokens {
+      height: 48px;
+  
+      font-family: sans-serif;
+      font-size: 24px;
+  
+      div {
+        margin: 4px;
+      }
+    }
+  
+    .muted {
+      color: gray;
+    }
+  }
+}
